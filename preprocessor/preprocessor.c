@@ -3,7 +3,7 @@
 #define MAX_ARRAY_LENGTH 20
 #undef FILESIZE
 #define FILESIZE 42
-
+#define MESSAGE "yup!"
 #ifndef MESSAGE
    #define MESSAGE "You Wish!"
 #endif
