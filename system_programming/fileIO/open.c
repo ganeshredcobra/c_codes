@@ -20,9 +20,12 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int fd;
-fd=open("hello.txt","r");
-if(fd == -1)
+void main()
 {
-	printf("Error");
+	int fd;
+	fd=open("hello.txt",O_RDONLY);
+	if(fd == -1)
+	{
+		printf("Error");
+	}
 }
