@@ -11,7 +11,7 @@ typedef int BOOL;
 #define TRUE !FALSE;
 
 
-char LoopupTable[4][7]= {{'<','c','r','>'},{'z'},{'d','p'},{'d','p','n'}};
+char LoopupTable[4][25]= {{'<','c','r','>'},{'z'},{'d','p'},{'d','p','n'}};
 BOOL status = FALSE;
 int onedlength,twodlength;
 
@@ -28,7 +28,7 @@ int find_length(char input[])
 }
 
 
-int twod_length(char a1 [4][7],int r)
+int twod_length(char a1 [4][25],int r)
 {
     int length = 0;
     while(a1[r][length]!='\0')
@@ -39,7 +39,7 @@ int twod_length(char a1 [4][7],int r)
 
 }
 
-int equal_arrays(char a1 [4][7], char a2 [], int r,int c)
+int equal_arrays(char a1 [4][25], char a2 [], int r,int c)
 {
     int i,j,result;
     for(i=0; i<r; i++)
@@ -78,10 +78,13 @@ int equal_arrays(char a1 [4][7], char a2 [], int r,int c)
 int main()
 {
     int i,j,k;
-    char test[7]="dps";
+    char test[25];
+
+    printf("\nEnter the source string: ");
+    gets(test);
 
     //printf("Length of 1d array %d\n",onedlength);
-    k=equal_arrays(LoopupTable,test,4,7);
+    k=equal_arrays(LoopupTable,test,4,25);
 
     char name[]="hello1";
     if(status)
