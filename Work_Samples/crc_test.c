@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-uint16_t  AVG_Current = 0x1FF;
+uint16_t  XOR_MASK = 0xFFFF;
+uint16_t  AVG_Current = 0xFF1;
+uint16_t  Dummy_AVG_Current = 0x1FF;
+
 
 unsigned checksum_array(void *buffer, int len, unsigned int seed)
 {
@@ -33,6 +36,14 @@ unsigned int checksum_int(uint16_t Msg,  unsigned int seed)
    return seed;
 	
 }
+
+unsigned int checksum_xor(uint16_t Msg, uint16_t seed)
+{
+   seed = ((Msg ^ XOR_MASK));
+   printf("XOR Val is %d \n",seed);
+   return seed;
+	
+}
  
 int main()
 {
@@ -45,5 +56,9 @@ int main()
   printf("AVG_Current pre is %X \n",AVG_Current);
   CRCsum = checksum_int(AVG_Current,0);
   printf("CRCsum is %d \n",CRCsum);
- 
+  CRCsum = checksum_xor(AVG_Current,0);
+  printf("Xor checksum is is %X \n",CRCsum);
+  CRCsum = checksum_xor(Dummy_AVG_Current,0);
+  printf("Xor checksum is is %X \n",CRCsum);
+  
 }
